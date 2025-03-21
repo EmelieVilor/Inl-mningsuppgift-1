@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs 2: Inlämning 1</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Rouge+Script&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<section id="header-section">
+    <nav>
+        <span>Eatery</span>
+
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservations">Reservation</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+          <ul>
+            <li><a href="#"></a></li>
+            <li class="hideOnMobile"><a href="#header">Home</a></li>
+            <li class="hideOnMobile"><a href="#menu">Menu</a></li>
+            <li class="hideOnMobile"><a href="#reservations">Reservation</a></li>
+            <li class="hideOnMobile"><a href="#about">About Us</a></li>
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+          </ul>
+
+    </nav>
+
+    <header id="home">
+        <div id="gradient">
+        <img src="/images/background.jpg" alt="restaurant_background">
+        
+        <div class="header-text">
+        <h1>Welcome to <span>Eatery</span></h1>
+        <h2>Focused on farm-to-table dining, Eatery ensures that every dish is made from fresh, organic produce sourced directly from local farmers. Launched in 2018, the restaurant aims to promote healthy eating while creating a nurturing community atmosphere.</h2>
+        <a id=header-btn href="#menu">View Menu</a>
+    </div>
+
+    </div>
+
+
+    </header>
+
+</section>
+<hr>
+
+    <section id="menu">
+
+        <h3>Our Menus</h3>
+        <h5>Pick out your favorites and calculate the cost</h5>
+
+        <div id="btns-container">
+        <button id="dinner-btn" onclick="showDinner(), filterSelection('all')">Dinner Menu</button>
+        <button id="lunch-btn" onclick="showLunch(), filterSelection('all')">Lunch Menu</button>
+        <button id="drink-btn" onclick="showDrinks(), filterSelection('all')">Drink Menu</button>
+        </div>
+
+        <div class="menu-container">
+        <div id="dinner-menu">
+            <h3>Dinner Menu</h3>
+
+            <div id="filterContainer">
+                <button class="btn" onclick="filterSelection('all')">All</button>
+                <button class="btn" onclick="filterSelection('veg')">Veg</button>
+                <button class="btn" onclick="filterSelection('fish')">Fish</button>
+                <button class="btn" onclick="filterSelection('meat')">Meat</button>
+                <button class="btn" onclick="filterSelection('egg')">Egg</button>
+                <button class="btn" onclick="filterSelection('milk')">Milk</button>
+            </div>
+
+            <h5>Appetizers</h5>
+
+            <ol>
+                <li class="filterLi veg"><span><input class="checkbox" type="checkbox" value="8" onclick="calcItems()">Garden Salad ....... 8€</span><br>
+                    <i class="fa-solid fa-carrot"></i> Mixed greens, cherry tomatoes, cucumbers, and a lemon vinaigrette.</li>
+                <li class="filterLi veg"><span><input class="checkbox" type="checkbox" value="9" onclick="calcItems()">Roasted Vegetable Hummus ....... 9€</span><br>
+                    <i class="fa-solid fa-carrot"></i> <i class="fa-solid fa-egg"></i> Served with house-made pita chips and seasonal vegetables.</li>
+                <li class="filterLi veg milk"><span><input class="checkbox" type="checkbox" value="9" onclick="calcItems()">Baked Brie ....... 9€</span><br>
+                    <i class="fa-solid fa-carrot"></i> <i class="fa-solid fa-cow"></i> Local brie cheese topped with honey and walnuts, served with artisanal bread.</li>
+            </ol>
+
+            <hr>
+
+            <h5>Entrees</h5>
+
+            <ol>
+                <li class="filterLi meat"><span><input class="checkbox" type="checkbox" value="25" onclick="calcItems()">Grilled Herb-Crusted Chicken ....... 25€</span><br>
+                    <i class="fa-solid fa-drumstick-bite"></i> Served with seasonal roasted vegetables and quinoa pilaf.</li>
+                <li class="filterLi fish"><span><input class="checkbox" type="checkbox" value="28" onclick="calcItems()">Seared Salmon ....... 28€</span><br>
+                    <i class="fa-solid fa-fish"></i> Freshly caught from local waters, served on a bed of sautéed spinach and wild rice.</li>
+                <li class="filterLi veg"><span><input class="checkbox" type="checkbox" value="22" onclick="calcItems()">Vegetable Stir-Fry ....... 22€</span><br>
+                    <i class="fa-solid fa-carrot"></i> Organic seasonal vegetables tossed in a ginger-soy sauce, served over brown rice.</li>
+            </ol>
+
+            <hr>
+
+            <h5>Desserts</h5>
+
+            <ol>
+                <li class="filterLi veg egg"><span><input class="checkbox" type="checkbox" value="9" onclick="calcItems()">Seasonal Fruit Tart ....... 9€</span><br>
+                    <i class="fa-solid fa-egg"></i> Made with locally sourced fruits and cream atop a buttery crust.</li>
+                <li class="filterLi veg milk egg"><span><input class="checkbox" type="checkbox" value="11" onclick="calcItems()">Chocolate Hazelnut Mousse ....... 11€</span><br>
+                    <i class="fa-solid fa-cow"></i> <i class="fa-solid fa-egg"></i> Rich and creamy, made with organic ingredients and topped with crushed hazelnuts.</li>
+                <li class="filterLi veg milk"><span><input class="checkbox" type="checkbox" value="14" onclick="calcItems()">Bourbon Pecan Pie ....... 14€</span><br>
+                    <i class="fa-solid fa-cow"></i> A classic dessert featuring local pecans, served warm with vanilla ice cream.</li>
+            </ol>
+        </div>
+
+        <div id="lunch-menu">
+
+            <h3>Lunch Menu</h3>
+
+            <div id="filterContainer2">
+                <button class="btn" onclick="filterSelection('all')" autofocus>All</button>
+                <button class="btn" onclick="filterSelection('veg')">Veg</button>
+                <button class="btn" onclick="filterSelection('fish')">Fish</button>
+                <button class="btn" onclick="filterSelection('meat')">Meat</button>
+                <button class="btn" onclick="filterSelection('egg')">Egg</button>
+                <button class="btn" onclick="filterSelection('milk')">Milk</button>
+            </div>
+
+            <div class="lunch-info">
+            <span>Lunch Offerings (Available from 11 AM to 3 PM):</span> <br>
+            <p>Our lunch menu focuses on lighter, refreshing dishes that highlight the best of our local farms. Each dish is crafted with care, ensuring that your meal is as nutritious as it is delicious.</p></span>
+            </div>
+
+            <h5>Lunch Specials</h5>
+
+            <ol>
+                <li class="filterLi veg"><span><input class="checkbox" type="checkbox" value="9" onclick="calcItems()">Quinoa Salad Bowl ....... 9€</span><br>
+                    <i class="fa-solid fa-carrot"></i> A hearty bowl of organic quinoa topped with roasted vegetables, avocado, and a citrus dressing.</li>
+                <li class="filterLi meat"><span><input class="checkbox" type="checkbox" value="10" onclick="calcItems()">Turkey and Avocado Wrap ....... 10€</span><br>
+                    <i class="fa-solid fa-drumstick-bite"></i> Slow-roasted turkey breast with local greens, tomatoes, and avocado wrapped in a whole grain tortilla, served with a side of carrot sticks.</li>
+                <li class="filterLi veg"><span><input class="checkbox" type="checkbox" value="8" onclick="calcItems()">Vegan, Seasonal Soup of the Day ....... 8€</span><br>
+                    <i class="fa-solid fa-carrot"></i> Made daily with fresh, organic produce from local farms.</li>
+            </ol>
+
+            <hr>
+
+            <h5>Desserts</h5>
+
+            <ol>
+                <li class="filterLi veg egg"><span><input class="checkbox" type="checkbox" value="5" onclick="calcItems()">Lemon Sorbet ....... 5€</span><br>
+                    <i class="fa-solid fa-egg"></i> A light, refreshing dessert to cleanse the palate.</li>
+                <li class="filterLi veg milk egg"><span><input class="checkbox" type="checkbox" value="4" onclick="calcItems()">Chocolate Chip Cookies ....... 4€</span><br>
+                    <i class="fa-solid fa-cow"></i> <i class="fa-solid fa-egg"></i> Freshly baked using organic chocolate and flour.</li>
+            </ol>
+
+        </div>
+
+        <div id="drink-menu">
+
+            <h3>Drink Menu</h3>
+
+            <div id="drinksFilter">
+                <button class="btn" onclick="filterSelection('all')">All</button>
+                <button class="btn" onclick="filterSelection('wine')">Wine</button>
+                <button class="btn" onclick="filterSelection('beer')">Beer</button>
+                <button class="btn" onclick="filterSelection('warm')">Warm</button>
+                <button class="btn" onclick="filterSelection('lemonade')">Lemonade</button>
+                <button class="btn" onclick="filterSelection('juice')">Juice</button>
+            </div>
+
+            <h5>Lemonades & Juices</h5>
+
+            <ol>
+                <li class="filterLi lemonade"><span><input class="checkbox" type="checkbox" value="5" onclick="calcItems()">Fresh Lemonade ....... 5€</span><br>
+                    Made with organic lemons, pure cane sugar, and filtered water. Available still or sparkling.</li>
+                <li class="filterLi lemonade"><span><input class="checkbox" type="checkbox" value="6" onclick="calcItems()">Seasonal Fruit Sparkling Lemonade....... 6€</span><br>
+                    A sparkling beverage featuring organic seasonal fruits, fresh mint, and a splash of soda.</li>
+                    <li class="filterLi juice"><span><input class="checkbox" type="checkbox" value="4" onclick="calcItems()">Garden Green Juice ....... 4€</span><br>
+                        A revitalizing blend of organic kale, spinach, cucumber, green apple, and lemon.</li>
+                    <li class="filterLi juice"><span><input class="checkbox" type="checkbox" value="4" onclick="calcItems()">Beet and Berry Juice ....... 4€</span><br>
+                        A vibrant fusion of organic beetroot, mixed berries, and a hint of ginger.</li>
+                        <li class="filterLi juice"><span><input class="checkbox" type="checkbox" value="4" onclick="calcItems()">Carrot Citrus Juice ....... 4€</span><br>
+                            Freshly squeezed organic carrots combined with orange and ginger for a zesty boost.</li>
+
+            </ol>
+
+            <hr>
+
+            <h5>Wines</h5>
+
+            <ol>
+                <li class="filterLi wine"><span><input class="checkbox" type="checkbox" value="8" onclick="calcItems()">Chardonnay ....... 8€</span>
+                <li class="filterLi wine"><span><input class="checkbox" type="checkbox" value="10" onclick="calcItems()">Sauvignon Blanc ....... 10€</span>
+                    <li class="filterLi wine"><span><input class="checkbox" type="checkbox" value="9" onclick="calcItems()">Merlot ....... 9€</span>
+                        <li class="filterLi wine"><span><input class="checkbox" type="checkbox" value="11" onclick="calcItems()">Pinot Noir ....... 11€</span>
+                            <li class="filterLi wine"><span><input class="checkbox" type="checkbox" value="7" onclick="calcItems()">Organic Rosé ....... 7€</span>
+            </ol>
+
+            <hr>
+
+            <h5>Craft Beer</h5>
+
+            <ol>
+                <li class="filterLi beer"><span><input class="checkbox" type="checkbox" value="5" onclick="calcItems()">Pale Ale ....... 5€</span><br>
+                    A crisp and refreshing beer with a hint of citrus.</li>
+                <li class="filterLi beer"><span><input class="checkbox" type="checkbox" value="7" onclick="calcItems()">Belgian Witbier ....... 7€</span><br>
+                    A light, fruity beer brewed with coriander and orange peel.</li>
+                    <li class="filterLi beer"><span><input class="checkbox" type="checkbox" value="6" onclick="calcItems()">IPA ....... 6€</span><br>
+                    A hoppy and aromatic beer with a balanced bitterness.</li>
+            </ol>
+
+            <hr>
+
+            <h5>Warm Beverages</h5>
+
+            <ol>
+                <li class="filterLi warm"><span><input class="checkbox" type="checkbox" value="3" onclick="calcItems()">Tea ....... 3€</span><br>
+                    Our organic and soothing warm teas. Choose from Chamomile, Peppermint or Ginger turmeric.</li>
+                <li class="filterLi warm"><span><input class="checkbox" type="checkbox" value="3" onclick="calcItems()">Farmhouse Brew ....... 3€</span><br>
+                    Freshly ground organic coffee sourced from local roasters, served hot or as a classic espresso.</li>
+                <li class="filterLi warm"><span><input class="checkbox" type="checkbox" value="7" onclick="calcItems()">Cappuccino ....... 7€</span><br>
+                    A rich blend of organic espresso topped with frothy steamed milk.</li>
+                    <li class="filterLi warm"><span><input class="checkbox" type="checkbox" value="6" onclick="calcItems()">Spicy Aztec Hot Chocolate ....... 4€</span><br>
+                        A rich hot chocolate infused with cinnamon and a touch of chili for a warm kick.</li>
+                        <li class="filterLi warm"><span><input class="checkbox" type="checkbox" value="6" onclick="calcItems()">Spiced Apple Cider ....... 5€</span><br>
+                        Locally sourced apple cider heated with organic spices like cinnamon and cloves, served warm.</li>
+            </ol>
+
+        </div>
+    </div>
+
+    <div id="cost-container">
+    <h3 id="total-cost-text">Total cost:</h3><input value="$0.00" readonly="readonly" type="text" id="total"/></div>
+
+
+    </section>
+    <hr>
+
+    <section id="reservations">
+
+        <h3>Reservations</h3>
+        <h5>Book your table today</h5>
+
+        <form action="reservation.php" method="post">
+            <div class="elem-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="visitor_name" placeholder="John Doe" pattern=[A-Z\sa-z]{3,20}>
+            </div>
+            <div class="elem-group">
+              <label for="email">Your E-mail</label>
+              <input type="email" id="email" name="visitor_email" placeholder="john.doe@email.com">
+            </div>
+            <div class="elem-group">
+              <label for="phone">Your Phone</label>
+              <input type="tel" id="phone" name="visitor_phone" placeholder="070-123456" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4})>
+            </div>
+
+            <div class="select-container">
+            <div class="elem-group inlined">
+              <label for="adult">Number of people</label>
+              <input type="number" id="adult" name="total_adults" placeholder="2" min="1">
+            </div>
+
+          
+            <div class="elem-group inlined">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="checkin">
+            </div>
+
+        </div>
+            <div class="elem-group">
+              <label for="message">Anything you'd like to add?</label>
+              <textarea id="message" name="visitor_message" placeholder="Tell us anything else that might be important."></textarea>
+            </div>
+            <button id="resBtn">Make Reservation</button>
+          </form>
+
+ 
+    </section>
+    <hr>
+
+
+
+    <section id="about">
+
+        <h3>About <span class="logo">Eatery</span></h3>
+        <h5>Take a look at some of our dishes in our gallery</h5>
+
+        <div id="about-container">
+
+        <div class="gallery">
+            
+            <div class="img-container"><img src="/images/food1.jpg" alt="food"></div>
+            <div class="img-container"><img src="/images/food2.jpg" alt="morefood"></div>
+            <div class="img-container"><img src="/images/food3.jpg" alt="evenmorefood"></div>
+            <div class="img-container"><img src="/images/food4.jpg" alt="dessert"></div>
+        </div>
+
+        <div class="about-us">
+            
+            <h5>Overview</h5>
+            <p>Founded in 2018, Eatery is committed to the farm-to-table dining philosophy, ensuring that every dish is crafted using fresh, organic produce sourced directly from local farmers. Our mission is to promote healthy eating while fostering a nurturing community atmosphere.</p> <br><br>
+            
+            <h5>Our Philosophy</h5>
+            <p>At Eatery, we believe that good food starts with good ingredients. We partner with local farms and artisans to bring you the freshest produce, meats, and dairy, supporting sustainable practices while reducing our carbon footprint. Our menu changes seasonally to highlight the bounty of our surrounding farms, allowing our chefs to create innovative dishes that celebrate the flavors of the region.</p> <br><br>
+            
+            <h5>Community Focus</h5>
+            <p>We are not just a restaurant; we are a community hub. At Eatery, we strive to create a warm, welcoming environment where guests can gather to enjoy delicious meals, share stories, and celebrate local culture. We host various community events, including seasonal farm tours, cooking classes, and farmer meet-and-greets, encouraging our patrons to connect with the source of their food.</p><br><br>
+            
+            <h5>Looking Ahead</h5>
+            <p>As we continue to grow, Eatery remains devoted to our founding principles of sustainability, community, and wholesome, delicious food. We invite you to join and experience the vibrant flavors of our local landscape.
+            
+            Whether you are visiting for a quick lunch, a family dinner, or a special event, Eatery welcomes you to savor the best of what our local farms have to offer.</p></div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div id="footer-contact">
+            <h4>Contact Information</h4>
+            <p>Address: Streetname 34, City, 125 63 </p>
+            <p>Telephone: +46 1234 1234</p>
+            <p>E-mail: restaurant@email.com</p>
+        </div>
+
+        <i class="fa-solid fa-utensils"></i>
+
+
+    </footer>
+    
+    <script src="/script/hamburgermenu.js"></script>
+    <script src="/script/script.js"></script>
+</body>
+</html>
